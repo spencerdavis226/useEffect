@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import Timer from './Timer';
+import TimerWrapper from './TimerWrapper';
 import Counter from './Counter';
 import ProfileViewer from './ProfileViewer';
 import ProfileViewerWithSearch from './ProfileViewerWithSearch';
@@ -10,9 +10,10 @@ function App() {
     <div className="App">
       {/* <Counter /> */}
       {/* <Timer /> */}
-      <ProfileViewer name="Colt" />
+      {/* <ProfileViewer name="Colt" />
       <ProfileViewer name="John" />
-      <ProfileViewerWithSearch />
+      <ProfileViewerWithSearch /> */}
+      <TimerWrapper />
     </div>
   );
 }
