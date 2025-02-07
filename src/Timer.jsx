@@ -1,17 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
+  const timerID = useRef();
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    timerID.current = setInterval(() => {
       setSeconds((seconds) => seconds + 1);
     }, 1000);
 
-    return () => clearInterval(interval); // Cleanup function to prevent multiple intervals
+    return () => clearInterval(timerID.current); // Cleanup function to prevent multiple intervals
   }, []);
 
-  return <h1>{seconds}</h1>;
+  const stopTimer = () => {
+    clearInterval(timerID.current);
+  };
+
+  return (
+    <div>
+      <h1>{seconds}</h1>
+      <button onClick={stopTimer}>Stop</button>
+    </div>
+  );
 };
 
 export default Timer;
